@@ -45,21 +45,22 @@ else {
     cpuChoice = "scissors";
 }
 // Display both choices to user
-console.log("\nYou chose: " + usrChoice);
-console.log("\nComputer chose: " + cpuChoice);
+console.log("\nYou chose: " + usrChoice.toUpperCase());
+setTimeout(() => {console.log("\nComputer chose: " + cpuChoice.toUpperCase());
 // Go through each possibility and find out who wins
 // If computer choice and user choice are the same, the game is a tie
-if (cpuChoice == usrChoice) {
+if (cpuChoice == usrChoice.toLowerCase()) {
     console.log("\nIT's A TIE!!!\n");
 }
 // List of cases in which computer would win
-else if ((cpuChoice == "scissors" && usrChoice == "paper") || 
-         (cpuChoice == "paper" && usrChoice == "rock") || 
-         (cpuChoice == "rock" && usrChoice == "scissors")) {
+else if ((cpuChoice == "scissors" && usrChoice.toLowerCase() == "paper") || 
+         (cpuChoice == "paper" && usrChoice.toLowerCase() == "rock") || 
+         (cpuChoice == "rock" && usrChoice.toLowerCase() == "scissors")) {
     console.log("\nComputer Wins!!!\n");
 }
 // If computer does not win and game is not a tie, user wins
 else {
     console.log("\nYOU WIN!!!\n");
 }
+}, 1200);
 
