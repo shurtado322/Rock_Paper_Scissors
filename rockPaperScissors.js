@@ -21,16 +21,11 @@ do{
     // Do while loop will persist until a valid choice is entered by the user
     do {
         // Get user choice
-        usrChoice = prompt("\nPlease type in your choice (rock, paper, scissors (x to exit)): ");
+        usrChoice = prompt("\nPlease type in your choice (rock, paper, scissors): ");
         // Define valid input for input validation
         if (usrChoice.toLowerCase() == "rock" || usrChoice.toLowerCase() == "paper" 
             || usrChoice.toLowerCase() == "scissors") {
             isValid = true;
-        }
-        // Choice if user enters x to exit
-        else if (usrChoice.toLowerCase() == "x") {
-            isValid = true;
-            console.log("/nExited Successfully. Thanks for Playing!!!/n");
         }
         // Choice if no valid inputs are entered the prompt persists
         else {
@@ -83,9 +78,12 @@ if (usrWin > cpuWin) {
     console.log("\nComputer wins: " + cpuWin);
     console.log("\n\nYOU ARE THE CHAMPION!!!\n");
 }
-else {
+else if (usrWin < cpuWin) {
     console.log("\nUser wins: " + usrWin);
     console.log("\nComputer wins: " + cpuWin);
     console.log("\n\nBETTER LUCK NEXT TIME!")
+}
+else {
+    console.log("\nThanks For Playing!")
 }
 
