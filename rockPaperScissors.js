@@ -1,17 +1,34 @@
 // Display title of game 
 console.log("Welcome to ROCK, PAPER, SCISSORS!\n\n");
 
+const MAX = 3;          // Number of options for computer to randomize
 let games = 0;      // games will keep track of the non tied games in each match  
 let totGames = 0;   // totGames will keep track of the total games played in each match
 let usrWin = 0;     // Store number of games won by user
 let cpuWin = 0;     // Store number of games won by computer
 let winner = "";    // Store the winner out of 5 games
 
-do{
+
+function computerPlay () {
+    // Generate a random choice for computer player to use
+    cpuPick = getRandInt(MAX);
+    // Assign cpu choice to a each value
+    if (cpuPick == 0) {
+        cpuPick = "rock";
+    }
+    else if (cpuPick == 1) {
+        cpuPick = "paper";
+    }
+    else {
+        cpuPick = "scissors";
+    }
+    return cpuPick;
+}
+
+do {
     let usrChoice;          // Store user's selection to compare with computer selection
     let cpuChoice;          // Store computer's selection.
     let isValid = false;    // Input validation boolean for user choice
-    const MAX = 3;          // Number of options for computer to randomize
 
     // Randomization function that will return an integer between 0 and input number
     function getRandInt(max) {
@@ -34,18 +51,9 @@ do{
     }
     while (isValid == false);
 
-    // Generate a random choice for computer player to use
-    cpuChoice = getRandInt(MAX);
-    // Assign cpu choice to a each value
-    if (cpuChoice == 0) {
-        cpuChoice = "rock";
-    }
-    else if (cpuChoice == 1) {
-        cpuChoice = "paper";
-    }
-    else {
-        cpuChoice = "scissors";
-    }
+    // Get computer choice
+    cpuChoice = computerPlay();
+    
     // Display both choices to user
     console.log("\nYou chose: " + usrChoice.toUpperCase());
     console.log("\nComputer chose: " + cpuChoice.toUpperCase());
