@@ -8,6 +8,10 @@ let usrWin = 0;     // Store number of games won by user
 let cpuWin = 0;     // Store number of games won by computer
 let winner = "";    // Store the winner out of 5 games
 
+// Randomization function that will return an integer between 0 and input number
+function getRandInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 function computerPlay () {
     // Generate a random choice for computer player to use
@@ -25,15 +29,10 @@ function computerPlay () {
     return cpuPick;
 }
 
-do {
+//do {
     let usrChoice;          // Store user's selection to compare with computer selection
     let cpuChoice;          // Store computer's selection.
     let isValid = false;    // Input validation boolean for user choice
-
-    // Randomization function that will return an integer between 0 and input number
-    function getRandInt(max) {
-        return Math.floor(Math.random() * max);
-    }
 
     // Do while loop will persist until a valid choice is entered by the user
     do {
@@ -77,8 +76,8 @@ do {
     }
     games++;
     totGames++;
-} 
-while (games < 5 && usrWin < 3 && cpuWin < 3);
+//} 
+//while (games < 5 && usrWin < 3 && cpuWin < 3);
 
 // Figure out who the final winner is and display to user
 if (usrWin > cpuWin) {

@@ -1,0 +1,73 @@
+html {
+    font-size: 10px;
+    background: url('./background.jpeg') bottom center;
+    background-size: cover;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.title {
+    font-family:vmonospace;
+    font-size: 40px;
+    color;
+    display: flex;
+    justify-content: center;
+    padding-top: 9rem;
+}
+
+.buttons {
+    display: flex;
+    flex: 1;
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerChoice {
+    border: .4rem solid black;
+    border-radius: 50%;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 30rem;
+    height: 30rem;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 .5rem black;
+}
+
+#rock {
+    background: url('rock.png') center;
+    background-repeat: no-repeat;
+    width: 30rem;
+    height: 30rem;
+    border: 0;
+    background-size: 100%;
+    background-size: 20rem auto;
+}
+
+#paper {
+    background: url('paper.png') center;
+    background-repeat: no-repeat;
+    width: 30rem;
+    height: 30rem;
+    border: 0;
+    background-size: 100%;
+    background-size: 25rem auto;
+}
+
+#scissors {
+    background: url('scissors.png') center;
+    background-repeat: no-repeat;
+    width: 30rem;
+    height: 30rem;
+    border: 0;
+    background-size: 100%;
+    background-size: 15rem auto;
+}
