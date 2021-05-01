@@ -1,7 +1,4 @@
-// Display title of game 
-console.log("Welcome to ROCK, PAPER, SCISSORS!\n\n");
-
-const MAX = 3;          // Number of options for computer to randomize
+const MAX = 3;      // Number of options for computer to randomize
 let games = 0;      // games will keep track of the non tied games in each match  
 let totGames = 0;   // totGames will keep track of the total games played in each match
 let usrWin = 0;     // Store number of games won by user
@@ -29,55 +26,68 @@ function computerPlay () {
     return cpuPick;
 }
 
-//do {
-    let usrChoice;          // Store user's selection to compare with computer selection
-    let cpuChoice;          // Store computer's selection.
-    let isValid = false;    // Input validation boolean for user choice
+function playRound(e) {
+    //do {
+        let usrChoice = e;    // Store user's selection to compare with computer selection
+        let cpuChoice;        // Store computer's selection.
 
-    // Do while loop will persist until a valid choice is entered by the user
-    do {
-        // Get user choice
-        usrChoice = prompt("\nPlease type in your choice (rock, paper, scissors): ");
-        // Define valid input for input validation
-        if (usrChoice.toLowerCase() == "rock" || usrChoice.toLowerCase() == "paper" 
-            || usrChoice.toLowerCase() == "scissors") {
-            isValid = true;
+        // Get computer choice
+        cpuChoice = computerPlay();
+        
+        // Display both choices to user
+        console.log("\nYou chose: " + usrChoice.toUpperCase());
+        console.log("\nComputer chose: " + cpuChoice.toUpperCase());
+
+        
+
+        const results = document.querySelector("#results");
+
+        // Display user's current choice
+        const currentUsr = document.createElement("div");
+        currentUsr.classList.add("currentUsr");
+        currentUsr.textContent = "You chose: " + usrChoice.toUpperCase();
+
+        // Display computer's current choice
+        const currentCpu = document.createElement("div");
+        currentCpu.classList.add("currentCpu");
+        currentCpu.textContent = "Computer chose: " + cpuChoice.toUpperCase();
+
+        results.appendChild(currentUsr);
+        results.appendChild(currentCpu);
+
+        // Go through each possibility and find out who wins
+        // If computer choice and user choice are the same, the game is a tie
+        if (cpuChoice == usrChoice) {
+            const tieResult = document.createElement("div");
+            tieResult.classList.add("tieResult");
+            tieResult.textContent = "Game " + Number(totGames + 1) + ": IT'S A TIE!!!";
+            results.appendChild(tieResult);
+            games--;
         }
-        // Choice if no valid inputs are entered the prompt persists
+        // List of cases in which computer would win
+        else if ((cpuChoice == "scissors" && usrChoice == "paper") || 
+                (cpuChoice == "paper" && usrChoice == "rock") || 
+                (cpuChoice == "rock" && usrChoice == "scissors")) {
+            const computerWin = document.createElement("div");
+            computerWin.classList.add("computerWin");
+            computerWin.textContent = "Game " + Number(totGames + 1) + ": COMPUTER WINS!!!";
+            results.appendChild(computerWin);
+            cpuWin++;       // Increment computer wins by one
+        }
+        // If computer does not win and game is not a tie, user wins
         else {
-            isValid = false;
+            const userWin = document.createElement("div");
+            userWin.classList.add("userWin");
+            userWin.textContent = "Game " + Number(totGames + 1) + ": YOU WIN!!!";
+            results.appendChild(userWin);
+            usrWin++;           // Increment user wins by one
         }
-    }
-    while (isValid == false);
+        games++;
+        totGames++;
 
-    // Get computer choice
-    cpuChoice = computerPlay();
-    
-    // Display both choices to user
-    console.log("\nYou chose: " + usrChoice.toUpperCase());
-    console.log("\nComputer chose: " + cpuChoice.toUpperCase());
-    // Go through each possibility and find out who wins
-    // If computer choice and user choice are the same, the game is a tie
-    if (cpuChoice == usrChoice.toLowerCase()) {
-        console.log("\nGame " + Number(totGames + 1) + ": IT's A TIE!!!\n\n");
-        games--;
+    //} 
+    //while (games < 5 && usrWin < 3 && cpuWin < 3);
     }
-    // List of cases in which computer would win
-    else if ((cpuChoice == "scissors" && usrChoice.toLowerCase() == "paper") || 
-            (cpuChoice == "paper" && usrChoice.toLowerCase() == "rock") || 
-            (cpuChoice == "rock" && usrChoice.toLowerCase() == "scissors")) {
-        console.log("\nGame " + Number(totGames + 1) + ": Computer Wins!!!\n\n");
-        cpuWin++;       // Increment computer wins by one
-    }
-    // If computer does not win and game is not a tie, user wins
-    else {
-        console.log("\nGame " + Number(totGames + 1) + ": YOU WIN!!!\n\n");
-        usrWin++;       // Increment user wins by one
-    }
-    games++;
-    totGames++;
-//} 
-//while (games < 5 && usrWin < 3 && cpuWin < 3);
 
 // Figure out who the final winner is and display to user
 if (usrWin > cpuWin) {

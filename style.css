@@ -1,22 +1,43 @@
 html {
     font-size: 10px;
     background: url('./background.jpeg') bottom center;
-    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
 }
 
 body, html {
-    margin: 0;
-    padding: 0;
+    overflow: overlay;
+    margin: auto;
+    padding: auto;
+    overflow-y: hidden;
     font-family: sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgb(21, 0, 95);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 221, 27, 0.555);
+  }
+
 .title {
-    font-family:vmonospace;
-    font-size: 40px;
-    color;
+    background-color: rgba(255, 177, 31, 0.788);
+    font-family: fantasy;
+    font-size: 50px;
+    font-style: italic;
+    text-transform: full-width;
+    letter-spacing: 5px;
+    word-spacing: 5rem;
+    color: rgba(26, 0, 143, 0.959);
     display: flex;
     justify-content: center;
-    padding-top: 9rem;
+    vertical-align: middle;
 }
 
 .buttons {
@@ -45,29 +66,67 @@ body, html {
 #rock {
     background: url('rock.png') center;
     background-repeat: no-repeat;
-    width: 30rem;
-    height: 30rem;
+    width: 35rem;
+    height: 35rem;
     border: 0;
     background-size: 100%;
     background-size: 20rem auto;
 }
 
+#rock:hover {
+    background-size: 25rem auto;
+}
+
 #paper {
     background: url('paper.png') center;
     background-repeat: no-repeat;
-    width: 30rem;
-    height: 30rem;
+    width: 35rem;
+    height: 35rem;
     border: 0;
     background-size: 100%;
     background-size: 25rem auto;
 }
 
+#paper:hover {
+    background-size: 30rem auto;
+}
+
 #scissors {
     background: url('scissors.png') center;
     background-repeat: no-repeat;
-    width: 30rem;
-    height: 30rem;
+    width: 35rem;
+    height: 35rem;
     border: 0;
     background-size: 100%;
     background-size: 15rem auto;
+}
+
+#scissors:hover {
+    background-size: 20rem auto;
+}
+
+#results {
+    font-size: 16px;
+    width: 29rem;
+    height: 10rem;
+    background-color: rgba(255, 227, 104, 0.788);
+    overflow: auto;
+    justify-items: center;
+    padding-left: 1rem;
+}
+
+#resultsTitle {
+    font-size: 20px;
+    width: 10rem;
+    display: flex;
+    flex: 1;
+    border: .4rem solid black;
+    transition: all .07s ease;
+    text-align: center;
+    background: rgba(255, 238, 0, 0.555);
+    text-shadow: 0 0 .5rem rgb(255, 255, 255);
+    justify-content: center;
+    justify-items: center;
+    padding-left: 10rem;
+    padding-right: 9rem;
 }
